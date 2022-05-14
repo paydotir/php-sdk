@@ -4,7 +4,7 @@ The Pay.ir SDK makes it easy for developers to access [Pay.ir's Services](https:
 
 ## Installation
 
-    composer require paydotir/php-sdk
+    composer require paydotir/php-sdk "^1.0"
 
 ## Services
 
