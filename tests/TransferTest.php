@@ -5,7 +5,6 @@ namespace Payir\SDK\Tests;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
-use PHPUnit\Framework\TestCase;
 use Payir\SDK\Services\Transfer;
 use Payir\SDK\Utils\Http;
 
@@ -31,7 +30,7 @@ class TransferTest extends TestCase
         $mockHandler = HandlerStack::create($mock);
         Http::fake($mockHandler);
 
-        $transfer = new Transfer("test");
+        $transfer = new Transfer($this->token);
         $res = $transfer->self(1, 2, "100000", "description", "1.1.1.1");
 
         $this->assertEquals(1, $res->transactionId);
@@ -58,7 +57,7 @@ class TransferTest extends TestCase
         $mockHandler = HandlerStack::create($mock);
         Http::fake($mockHandler);
 
-        $transfer = new Transfer("test");
+        $transfer = new Transfer($this->token);
         $res = $transfer->other(1, "09123456789", "100000", "description", "1.1.1.1");
 
         $this->assertEquals(1, $res->transactionId);

@@ -5,7 +5,6 @@ namespace Payir\SDK\Tests;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
-use PHPUnit\Framework\TestCase;
 use Payir\SDK\Services\Wallet;
 use Payir\SDK\Utils\Http;
 
@@ -36,7 +35,7 @@ class WalletTest extends TestCase
         $mockHandler = HandlerStack::create($mock);
         Http::fake($mockHandler);
 
-        $wallet = new Wallet("test");
+        $wallet = new Wallet($this->token);
         $res = $wallet->getList();
 
         $this->assertEquals(123, $res->wallets[0]->id);
@@ -65,7 +64,7 @@ class WalletTest extends TestCase
         $mockHandler = HandlerStack::create($mock);
         Http::fake($mockHandler);
 
-        $wallet = new Wallet("test");
+        $wallet = new Wallet($this->token);
         $res = $wallet->get(123);
 
         $this->assertEquals(123, $res->id);

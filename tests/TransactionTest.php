@@ -5,7 +5,6 @@ namespace Payir\SDK\Tests;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
-use PHPUnit\Framework\TestCase;
 use Payir\SDK\Services\Transaction;
 use Payir\SDK\Utils\Http;
 
@@ -69,7 +68,7 @@ class TransactionTest extends TestCase
         $mockHandler = HandlerStack::create($mock);
         Http::fake($mockHandler);
 
-        $transaction = new Transaction("test");
+        $transaction = new Transaction($this->token);
         $res = $transaction->getList([
             "fromDate" => "2021-03-21",
             "toDate" => "1400-01-01"

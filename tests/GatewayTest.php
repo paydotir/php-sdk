@@ -6,7 +6,6 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
-use PHPUnit\Framework\TestCase;
 use Payir\SDK\Services\Gateway;
 use Payir\SDK\Utils\Http;
 

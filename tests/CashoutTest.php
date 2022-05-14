@@ -5,7 +5,6 @@ namespace Payir\SDK\Tests;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
-use PHPUnit\Framework\TestCase;
 use Payir\SDK\Services\Cashout;
 use Payir\SDK\Utils\Http;
 
@@ -42,7 +41,7 @@ class CashoutTest extends TestCase
         $mockHandler = HandlerStack::create($mock);
         Http::fake($mockHandler);
 
-        $cashout = new Cashout("test");
+        $cashout = new Cashout($this->token);
         $res = $cashout->create(1, 100000, "name", "XXXXXXXXXXXXXXXXXXXXXXXX", "123");
 
         $this->assertEquals(1, $res->id);
@@ -64,7 +63,7 @@ class CashoutTest extends TestCase
         $mockHandler = HandlerStack::create($mock);
         Http::fake($mockHandler);
 
-        $cashout = new Cashout("test");
+        $cashout = new Cashout($this->token);
         $res = $cashout->delete(1);
 
         $this->assertTrue($res);
@@ -103,7 +102,7 @@ class CashoutTest extends TestCase
         $mockHandler = HandlerStack::create($mock);
         Http::fake($mockHandler);
 
-        $cashout = new Cashout("test");
+        $cashout = new Cashout($this->token);
         $res = $cashout->getList();
 
         $this->assertEquals(1, $res->cashouts[0]->id);
@@ -140,7 +139,7 @@ class CashoutTest extends TestCase
         $mockHandler = HandlerStack::create($mock);
         Http::fake($mockHandler);
 
-        $cashout = new Cashout("test");
+        $cashout = new Cashout($this->token);
         $res = $cashout->get(1);
 
         $this->assertEquals(1, $res->id);
@@ -162,7 +161,7 @@ class CashoutTest extends TestCase
         $mockHandler = HandlerStack::create($mock);
         Http::fake($mockHandler);
 
-        $cashout = new Cashout("test");
+        $cashout = new Cashout($this->token);
         $res = $cashout->track("test-uid");
 
         $this->assertFalse($res);
@@ -191,7 +190,7 @@ class CashoutTest extends TestCase
         $mockHandler = HandlerStack::create($mock);
         Http::fake($mockHandler);
 
-        $cashout = new Cashout("test");
+        $cashout = new Cashout($this->token);
         $res = $cashout->ibanInquiry("IR111111111111111111111111");
 
         $this->assertEquals("name", $res->name);
