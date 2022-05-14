@@ -44,12 +44,12 @@ $paymentUrl = "https://pay.ir/pg/$send->token";
 $gateway = new \Payir\SDK\Services\Gateway('API-KEY');
 $verify = $gateway->verify("token");
 $paymentData = [
-    "amount" => $verify->amount
-    "transId" => $verify->transId
-    "factorNumber" => $verify->factorNumber
-    "mobile" => $verify->mobile
-    "description" => $verify->description
-    "cardNumber" => $verify->cardNumber
+    "amount" => $verify->amount,
+    "transId" => $verify->transId,
+    "factorNumber" => $verify->factorNumber,
+    "mobile" => $verify->mobile,
+    "description" => $verify->description,
+    "cardNumber" => $verify->cardNumber,
     "message" => $verify->message
 ];
 ```
