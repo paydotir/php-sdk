@@ -32,7 +32,8 @@ class Cashout extends AbstractAPIService
     {
         $res = $this->client->post($this->baseUri . "/cashouts", [
             "headers" => [
-                "Authorization" => "Bearer $this->token"
+                "Authorization" => "Bearer $this->token",
+                "Accept" => "application/json"
             ],
             "form_params" => [
                 "walletId" => $walletId,
@@ -63,7 +64,8 @@ class Cashout extends AbstractAPIService
     {
         $res = $this->client->delete($this->baseUri . "/cashouts/$id", [
             "headers" => [
-                "Authorization" => "Bearer $this->token"
+                "Authorization" => "Bearer $this->token",
+                "Accept" => "application/json"
             ],
             RequestOptions::HTTP_ERRORS => false
         ]);
@@ -84,7 +86,8 @@ class Cashout extends AbstractAPIService
     {
         $res = $this->client->get($this->baseUri . "/cashouts", [
             "headers" => [
-                "Authorization" => "Bearer $this->token"
+                "Authorization" => "Bearer $this->token",
+                "Accept" => "application/json"
             ],
             RequestOptions::HTTP_ERRORS => false
         ]);
@@ -106,7 +109,8 @@ class Cashout extends AbstractAPIService
     {
         $res = $this->client->get($this->baseUri . "/cashouts/$id", [
             "headers" => [
-                "Authorization" => "Bearer $this->token"
+                "Authorization" => "Bearer $this->token",
+                "Accept" => "application/json"
             ],
             RequestOptions::HTTP_ERRORS => false
         ]);
@@ -128,7 +132,8 @@ class Cashout extends AbstractAPIService
     {
         $res = $this->client->get($this->baseUri . "/cashouts/track/$uid", [
             "headers" => [
-                "Authorization" => "Bearer $this->token"
+                "Authorization" => "Bearer $this->token",
+                "Accept" => "application/json"
             ],
             RequestOptions::HTTP_ERRORS => false
         ]);
@@ -154,7 +159,8 @@ class Cashout extends AbstractAPIService
     {
         $res = $this->client->get($this->baseUri . "/cashouts/inquiry/$iban", [
             "headers" => [
-                "Authorization" => "Bearer $this->token"
+                "Authorization" => "Bearer $this->token",
+                "Accept" => "application/json"
             ],
             RequestOptions::HTTP_ERRORS => false
         ]);

@@ -54,7 +54,8 @@ class Transfer extends AbstractAPIService
     {
         $res = $this->client->post($this->baseUri . "/transfer/other", [
             "headers" => [
-                "Authorization" => "Bearer $this->token"
+                "Authorization" => "Bearer $this->token",
+                "Accept" => "application/json"
             ],
             "form_params" => [
                 "fromWallet" => $fromWallet,

@@ -55,13 +55,16 @@ abstract class AbstractGateway
     {
         $url = $this->share ? "/share/send" : "/send";
         $res = $this->client->post($this->baseUri . $url, [
+            "headers" => [
+                "Accept" => "application/json"
+            ],
             "form_params" => array_merge([
                 "api" => $this->apiKey,
                 "amount" => $amount,
                 "redirect" => $redirect,
                 "resellerId" => "1000000012"
             ], $additional),
-            RequestOptions::HTTP_ERRORS => false
+            RequestOptions::HTTP_ERRORS => false,
         ]);
 
         if ($res->getStatusCode() == 200) {
@@ -80,6 +83,9 @@ abstract class AbstractGateway
     public function verify(string $token): VerifyDTO
     {
         $res = $this->client->post($this->baseUri . "/verify", [
+            "headers" => [
+                "Accept" => "application/json"
+            ],
             "form_params" => [
                 "api" => $this->apiKey,
                 "token" => $token

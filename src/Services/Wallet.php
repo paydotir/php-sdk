@@ -20,7 +20,8 @@ class Wallet extends AbstractAPIService
     {
         $res = $this->client->get($this->baseUri . "/wallets", [
             "headers" => [
-                "Authorization" => "Bearer $this->token"
+                "Authorization" => "Bearer $this->token",
+                "Accept" => "application/json"
             ],
             RequestOptions::HTTP_ERRORS => false
         ]);
@@ -42,7 +43,8 @@ class Wallet extends AbstractAPIService
     {
         $res = $this->client->get($this->baseUri . "/wallets/$id", [
             "headers" => [
-                "Authorization" => "Bearer $this->token"
+                "Authorization" => "Bearer $this->token",
+                "Accept" => "application/json"
             ],
             RequestOptions::HTTP_ERRORS => false
         ]);

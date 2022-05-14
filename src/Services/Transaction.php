@@ -19,7 +19,8 @@ class Transaction extends AbstractAPIService
     {
         $res = $this->client->get($this->baseUri . "/transactions?" . http_build_query($filter), [
             "headers" => [
-                "Authorization" => "Bearer $this->token"
+                "Authorization" => "Bearer $this->token",
+                "Accept" => "application/json"
             ],
             RequestOptions::HTTP_ERRORS => false
         ]);
