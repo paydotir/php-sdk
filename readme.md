@@ -186,4 +186,4 @@ If you discover any security issues please open an issue or contact us directly 
 
 ## License
 
-This package has been developed under MIT license.
+This package licensed under The MIT License.
